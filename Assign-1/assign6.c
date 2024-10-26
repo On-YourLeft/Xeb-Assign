@@ -1,3 +1,5 @@
+//Program to check in which quadrant the entered coordinates are
+
 #include <stdio.h>
 
 int quad(int x, int y)

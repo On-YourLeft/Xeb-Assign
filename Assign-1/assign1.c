@@ -35,35 +35,6 @@ int isArmstrong(int numo)
     }
 }
 
-/*int order(int x)
-{
-    int n = 0;
-    while (x) 
-    {
-        n++;
-        x = x / 10;
-    }
-    printf("%d",x);
-    return n;
-}
-
-int isArmstrong(int x)
-{
-    int n = order(x);
-    int temp = x, sum = 0;
-    while (temp) 
-    {
-        int r = temp % 10;
-        sum += pow(r, n);
-        temp = temp / 10;
-    }
-
-    if (sum == x)
-        return 1;
-    else
-        return 0;
-}*/
-
 int main()
 {
     int num;
