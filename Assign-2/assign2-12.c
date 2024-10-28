@@ -5,7 +5,7 @@
 int main()
 {
     int num,what,betw;
-    printf("How many elements do you want in the array?\nEnter:");
+    printf("How many elements do you want in the array?\nEnter the number:");
     scanf(" %d",&num);
     int arra[num+1];
     for (int i=0;i<num;i++)
@@ -34,7 +34,7 @@ int main()
     }
     else if (what==2)
     {
-        printf("\nElement at what position do you want to delete?\nEnter:");
+        printf("\nElement at what position do you want to delete?\nEnter the number:");
         scanf("%d",&betw);
         for (int i=betw;i<num;i++)
         {
