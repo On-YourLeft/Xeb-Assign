@@ -10,7 +10,7 @@ int game(char player[], char compi[]);
 
 int main()
 {
-    printf("\n\n\t\t\t\tWelcome to the game of Rock, Paper and Scissors!\n\tThe rules of this game are pretty simple, Rock beats Scissors, Scissors beat Paper, and Paper beats Rock.\n\tQuite simple, isn't it? As long as you don't consider the rock as 'THE ROCK', you're well and good.\n\t\t\tNow enough talk let's start the game, you ready to lose?\n");
+    printf("\n\n\t\t\t\tWelcome to the game of Rock, Paper and Scissors!\n\tThe rules of this game are pretty simple, Rock beats Scissors, Scissors beat Paper, and Paper beats Rock.\n\t   Quite simple, isn't it? As long as you don't consider the rock as 'THE ROCK', you're well and good.\n\t\t\tNow enough talk let's start the game, you ready to lose?\n");
     char namo[50];
     printf("\nBefore the game begins, state your name Warrior : ");
     fgets(namo ,sizeof(namo),stdin);
@@ -28,7 +28,7 @@ int main()
     }
     sleep(1);
     printf("\nGo!!!\n");
-    printf("Rock, Paper or Scissors?\nEnter your choice:");
+    printf("Rock, Paper or Scissors?\nEnter your choice : ");
     char userc[10];
     fgets(userc ,sizeof(userc),stdin);
     lowa(userc);

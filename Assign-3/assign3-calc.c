@@ -15,64 +15,70 @@ int main()
     double num1,num2;
     int what;
     ques:
-    printf("What do you want to do?\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Find the logarithmic value\n6. Find the square root\nEnter your choice:");
+    printf("What do you want to do?\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Find the logarithmic value\n6. Find the square root\nEnter the corresponding number : ");
     scanf(" %d",&what);
     if (what==1)
     {
-        double *axm=(double*)calloc(10,sizeof(double));
-        printf("Enter the numbers you want to add (Put a '\\' after entering the numbers) :");
-        for (int i=0;i<10;i++)
+        int numba;
+        printf("How many numbers do you want to add : ");
+        scanf("%d",&numba);
+        double *axm=(double*)calloc(numba,sizeof(double));
+        printf("Enter the numbers you want to add  : ");
+        for (int i=0;i<numba;i++)
         {
             scanf("%lf",&axm[i]);
         }
-        printf("The sum is: %.2lf.",add(axm,10));
+        printf("The sum is: %.2lf.",add(axm,numba));
     } 
 
     else if (what==2)
     {
-        printf("Enter the first number:");
+        printf("Enter the first number : ");
         scanf("%lf",&num1);
-        printf("Enter the second number:");
+        printf("Enter the second number : ");
         scanf("%lf",&num2);
-        printf("The Subtraction of the numbers is: %.2lf",subtro(num1,num2));
+        printf("The Subtraction of the numbers is : %.2lf",subtro(num1,num2));
     }
 
     else if (what==3)
     {
-        double *axm=(double*)calloc(10,sizeof(double));
-        for (int i=0;i<10;i++)
+        int numba;
+        printf("How many numbers do you want to multiply :");
+        scanf("%d",&numba);
+        double *axm=(double*)calloc(numba,sizeof(double));
+        for (int i=0;i<numba;i++)
         {
             axm[i]=1.0;
         }
-        printf("Enter the numbers you want to multiply (Put a '\\' after entering the numbers) :");
-        for (int i=0;i<10;i++)
+        printf("Enter the numbers you want to multiply : ");
+        for (int i=0;i<numba;i++)
         {
             scanf("%lf",&axm[i]);
         }
-        printf("The product is: %.2lf.",multi(axm,10));
+        printf("The product is : %.2lf.",multi(axm,numba));
     }
 
     else if(what==4)
     {
-        printf("Enter the first number:");
+        printf("Enter the first number : ");
         scanf("%lf",&num1);
-        printf("Enter the second number:");
+        printf("Enter the second number : ");
         scanf("%lf",&num2);
-        printf("The Subtraction of the numbers is: %.2lf",divi(num1,num2));
+        printf("The Subtraction of the numbers is : %.2lf",divi(num1,num2));
     }
 
     else if (what==5)
     {
-        printf("Enter the number whose log you want to find:");
+        printf("Enter the number whose log you want to find : ");
         scanf("%lf",&num1);
-        printf("The division of first number by the second number is:%.2lf",loga(num1));
+        printf("The division of first number by the second number is : %.2lf",loga(num1));
     }
     
     else if(what==6)
     {
-        printf("Enter the number whose square root you want to find:");
+        printf("Enter the number whose square root you want to find : ");
         scanf("%lf",&num1);
-        printf("The division of first number by the second number is:%.2lf",root(num1));
+        printf("The division of first number by the second number is : %.2lf",root(num1));
     }
 
     else

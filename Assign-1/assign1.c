@@ -14,7 +14,7 @@ int order(int a)
     return x;
 }
 
-int isArmstrong(int numo)
+int isArms(int numo)
 {
     int power = order(numo);
     int num1 = numo, sum = 0;
@@ -47,7 +47,7 @@ int main()
     int x;
     printf("Enter the number:");
     scanf("%d",&x);
-    if (isArmstrong(x) == 1)
+    if (isArms(x) == 1)
         printf("True\n");
     else
         printf("False\n");
