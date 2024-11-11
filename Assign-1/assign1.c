@@ -6,7 +6,7 @@
 int order(int a)
 {
     int x = 0;
-    while (a) 
+    while (a>0) 
     {
         x++;
         a /= 10;
@@ -14,14 +14,24 @@ int order(int a)
     return x;
 }
 
+int power(int numbo, int exp) 
+{
+    int prod = 1;
+    for (int i = 0; i < exp; i++) 
+    {
+        prod *= numbo;
+    }
+    return prod;
+}
+
 int isArms(int numo)
 {
-    int power = order(numo);
+    int powo = order(numo);
     int num1 = numo, sum = 0;
-    while (num1) 
+    while (num1>0) 
     {
         int rem = num1 % 10;
-        sum += pow(rem, power);
+        sum +=power(rem,powo);
         num1 /= 10;
     }
 
@@ -37,19 +47,12 @@ int isArms(int numo)
 
 int main()
 {
-    int num;
-    printf("Enter the number:");
-    scanf("%d",&num);
-    if (isArmstrong(num) == 1)
-        printf("The Number is an Armstrong's number.\n");
-    else
-        printf("The number is not an Armstrong's number.\n");
     int x;
     printf("Enter the number:");
     scanf("%d",&x);
     if (isArms(x) == 1)
-        printf("True\n");
+        printf("The Number is an Armstrong's number.\n");
     else
-        printf("False\n");
+        printf("The number is not an Armstrong's number.\n");
     return 0;
 }
