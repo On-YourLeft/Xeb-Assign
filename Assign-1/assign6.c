@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int quad(int x, int y)
+void quad(int x, int y)
 {
     if ((x>0)&&(y>0))
     {
@@ -32,7 +32,6 @@ int quad(int x, int y)
     {
         printf("The coordinates are on the Origin.\n");
     }
-    return 0;
 }
 
 int main()
