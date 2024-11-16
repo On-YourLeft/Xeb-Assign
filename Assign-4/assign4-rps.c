@@ -60,25 +60,23 @@ int main()
     if (result==-1)
     {
         printf("\n\nIts a draw. :|");
-        rounds += 1;
         draw+=1;
     }
     else if (result==0)
     {
         printf("\n\nI won!!!!!\nSorry %s, but you lose. :(",namo);
         compwin+=1;
-        rounds += 1;
     }
     else if (result==1)
     {
         printf("\n\nYou won!\n\nCongratulations %s, Human evolution is still possible. :) ",namo);
         userwin +=1;
-        rounds += 1;
     }
     printf("\nRounds we played - %d",rounds);
     printf("\nRounds you won - %d",userwin);
     printf("\nRounds I won - %d",compwin);
     printf("\nRounds that were draw - %d",draw);
+    rounds += 1;
     printf("\n\nEnjoyed this little game of ours? Wanna try your luck again?");
     char againo[10];
     printf("\nState Yes or No:");

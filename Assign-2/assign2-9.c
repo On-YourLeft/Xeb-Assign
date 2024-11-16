@@ -7,7 +7,7 @@ int main()
     int peak=0,elements[10],x=0;
     for (int i=0;i<10;i++)
     {
-        printf("Enter the element %d:",i+1);
+        printf("Enter the elemednkndknt %d:",i+1);
         scanf("%d",&elements[i]);
     }
     for(int i=0;i<10;i++)
