@@ -5,7 +5,7 @@
 int main()
 {
     int num,min=0,max=0,x=0,y=0;
-    printf("Enter the number of students:");
+    printf("Enter the number of students hahahah:");
     scanf("%d",&num);
     int marks[num],sum=0;
     for (int i=0;i<num;i++)
