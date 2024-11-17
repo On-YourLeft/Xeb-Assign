@@ -31,10 +31,12 @@ int main()
     char mode[20];
     printf("\n\n\t\t\t\t\t\t\tWelcome to the Hangman Game! \n\tThe rules of this game are - There is a given word with ommited characters and you need to guess the characters to win the game. \n\t  You get limited chances only, use them wisely, don't mess it up, cause you don't wanna murder an imaginary person do you? \n\t\t\t\t\t\t   Now enough talk let's start the game. ");
 
+    int rounds = 1;
+    int wino=0;
+
     game:
     printf("\n\n\t\t\t\t   Now what mode do you wanna play this in Easy, Intermediate or Hard?\nEnter your choice : "); 
-    scanf("%s",mode);
-    strtok(mode,"\n");
+    scanf(" %s",mode);
     lowa(mode);
 
     struct WordandHint easywords[]=
@@ -173,18 +175,25 @@ int main()
         if (strcmp(secretword,guesso)==0)
         {
             printf("\nCongratulations! You've guessed the word : %s",secretword);
+            wino++;
             showhang(tries);
+            printf("\n\nThe number of rounds you played : %d",rounds);
+            printf("\n\nThe number of rounds you won : %d",wino);
+            rounds++;
             break;
         }
     }
     
         if (strcmp(secretword,guesso)!=0)
         {
-            printf("\nI'm sorry, but now you have the binary blood of this imaginative man on your hands. You're the culprit! The word was: %s",secretword);
+            printf("\nI'm sorry, but now you have the binary blood of this imaginative man on your hands. You're the culprit!\nThe word was: %s",secretword);
             showhang(tries);
+            printf("\n\nThe number of rounds you played : %d",rounds);
+            printf("\n\nThe number of rounds you won : %d",wino);
+            rounds++;
         }
 
-        printf("You enjoyed this, didn't you? Wanna play again?");
+        printf("\n\n\t\t\t\t\tYou enjoyed this, didn't you? Wanna play again?");
         char againo[10];
         printf("\nState yes or no : ");
         scanf(" %s",againo);
