@@ -146,7 +146,7 @@ int main()
 
         if (guessalr)
         {
-            printf("You've already guessed that letter.\n");
+            printf("\nYou've already guessed that letter.\n");
             continue;
         }
 
@@ -165,11 +165,11 @@ int main()
         if (!correctguess)
         {
             tries++;
-            printf("Incorrect guess!\n");
+            printf("\nIncorrect guess!\n");
         }
         else
         {
-            printf("Good guess!\n");
+            printf("\nGood guess!\n");
         }
 
         if (strcmp(secretword,guesso)==0)
@@ -186,7 +186,7 @@ int main()
     
         if (strcmp(secretword,guesso)!=0)
         {
-            printf("\nI'm sorry, but now you have the binary blood of this imaginative man on your hands. You're the culprit!\nThe word was: %s",secretword);
+            printf("\nI'm sorry, but now you have the binary blood of this imaginative man on your hands. You're the culprit!\n\nThe word was: %s",secretword);
             showhang(tries);
             printf("\n\nThe number of rounds you played : %d",rounds);
             printf("\n\nThe number of rounds you won : %d",wino);

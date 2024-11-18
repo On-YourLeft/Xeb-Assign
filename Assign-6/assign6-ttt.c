@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define size 3
+#define size 5
 
 void lowa(char stringo[]);
 void boardprint(char board[size][size]);
