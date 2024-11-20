@@ -44,6 +44,7 @@ int main()
     printf("Enter the second number:");
     scanf("%d",&number2);
     printf("The numbers before swapping are %d and %d.\n",number1,number2);
+    dodo:
     printf("In what way do you want to swap\n1. By using third Variable\n2. Without using third Variable\n3. Using bitwise XOR\n4. Using pointers\nEnter the corresponding number:");
     scanf(" %d",&way);
    switch (way)
@@ -65,7 +66,8 @@ int main()
        break;
 
        default:
-       printf("Invalid.");
+       printf("\nInvalid. Choose again.\n");
+       goto dodo;
        break;
    }
 
