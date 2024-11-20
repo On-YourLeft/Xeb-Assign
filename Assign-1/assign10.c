@@ -4,29 +4,28 @@
 
 int main()
 {
-    int row,c=1,a,i,j;
+    int num,no=1;
     printf("How many rows of patterns are you looking for: ");
-    scanf("%d",&row);
-    for(i=0;i<=row;i++)
+    scanf("%d",&num);
+    for(int i=0;i<num;i++)
     {
-        for(a=1;a<=row-i;a++)
+        for(int a=1;a<=num-i;a++)
         {
             printf("  ");
         }
-            for(j=0;j<=i;j++)
+        for(int j=0;j<=i;j++)
+        {
+            if (j==0||i==0)
             {
-                if (j==0||i==0)
-                {
-                    c=1;
-                }
-                else
-                {
-                    c=c*(i-j+1)/j;
-                    printf("%4d",c);
-                }
+                no=1;
             }
-            printf("\n");
-        
+            else
+            {
+                no=no*(i-j+1)/j;
+            }
+            printf("%4d",no);
+        }
+        printf("\n");
     }
     return 0;
 }
