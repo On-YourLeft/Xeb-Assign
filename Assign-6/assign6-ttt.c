@@ -12,16 +12,17 @@ int check_winner(char **board, int size);
 int is_draw(char **board, int size);
 void singleplayergame(char **board, int size, char *playername);
 void doubleplayergame(char **board, int size);
+void initialize_board(char **board, int size) ;
 
 int main()
 {
     int size;    
-    char *name;
+    char *name = (char*)malloc(sizeof(char));
 
     printf("\n\n\t\t\t\t\t\t\tWelcome to the game of Tic-Tac-Toe! \n\nThe working of this game has the following components:\n1. Objective: To be the first to make a straight line with either 'X' or 'O'.\n2. Game Board: The board consists of a nxn matrix-like structure, having n^2 small boxes, for eg, a 3x3 matrix will have 9 boxes.\n3. You win by making your symbol in a row or diagonal or column. Also, as a prt of strategy you need to block your opponent from forming a straight line while making of your own.\n\n\t\t\t\t\t\t   Now enough talk let's start the game. \n\n");
     
     printf("\nWhat board size do you want to play in? (Eg. Input 3 for 3x3, 4 for 4x4...)\nEnter your choice : ");
-    scanf("%d",&size);
+    scanf(" %d",&size);
 
     char **board = (char**)calloc(size, sizeof(char *));
     for (int i=0;i<size;i++)
@@ -33,7 +34,10 @@ int main()
         }
     }
 
+    initialize_board(board, size);
+
     selection:
+    initialize_board(board, size);
     printf("\n\nChoose a mode in which you wanna play the game\n1. V/S Computer (type-single)\n2. Two player(type-double)");
     char mode[10];
     printf("\nEnter your choice : ");
@@ -42,9 +46,8 @@ int main()
 
     if (strcmp(mode,"single")==0)
     {
-        char *name = (char*)malloc(sizeof(char));
         printf("State your name player : ");
-        scanf("%s",name);
+        scanf(" %s",name);
 
         printf("\nBoard size is : %d x %d",size,size);
         printf("\nSingle Player mode initialising");
@@ -63,11 +66,36 @@ int main()
         lowa(againo);
         if (strcmp(againo,"yes")==0)
         {
+            for (int i = 0; i < size; i++) 
+            {
+                free(board[i]);
+            }
+            free(board);
+            board = (char **)calloc(size, sizeof(char *));
+            for (int i = 0; i < size; i++) 
+            {
+                board[i] = (char *)calloc(size, sizeof(char));
+                for (int j = 0; j < size; j++) 
+                {
+                    board[i][j] = ' ';  
+                }
+            }
             goto selection;
         }
-        else if(strcmp(againo,"no")==0)
+        else if (strcmp(againo,"no")==0)
         {
-            printf("\n\n\t\t\t\t\t\t   Goodbye %s.",name);
+            for (int i = 0; i < size; i++) 
+            {
+                free(board[i]);
+            }
+            free(board);
+            printf("\n\n\t\t\t\t\t\t   Goodbye.");
+        }
+        
+        else
+        {
+            printf("\n\nError! Enter a valid choice!\n");
+            goto selection;
         }
 
     }
@@ -84,25 +112,44 @@ int main()
         printf("\nStart the game: \n\n");
         doubleplayergame(board,size);
         char againo[10];
-        printf("\n\nShould we play again? Yes or No?");
+        printf("\n\nShould we play again? Yes or No : ");
         scanf("%s",againo);
         lowa(againo);
         if (strcmp(againo,"yes")==0)
         {
+            for (int i = 0; i < size; i++) 
+            {
+                free(board[i]);
+            }
+            free(board);
+            board = (char **)calloc(size, sizeof(char *));
+            for (int i = 0; i < size; i++) 
+            {
+                board[i] = (char *)calloc(size, sizeof(char));
+                for (int j = 0; j < size; j++) 
+                {
+                    board[i][j] = ' ';  
+                }
+            }
             goto selection;
         }
         else if (strcmp(againo,"no")==0)
         {
+            for (int i = 0; i < size; i++) 
+            {
+                free(board[i]);
+            }
+            free(board);
             printf("\n\n\t\t\t\t\t\t   Goodbye.");
         }
+        
+        else
+        {
+            printf("\n\nError! Enter a valid choice!\n");
+            goto selection;
         }
-    else
-    {
-        printf("\n\nError! Enter a valid choice!\n");
-        goto selection;
     }
-
-    boardprint(board,size);
+    //boardprint(board,size);
     for (int i = 0; i < size; i++) 
     {
         free(board[i]);
@@ -124,18 +171,25 @@ void lowa(char stringo[])
 
 void boardprint(char **board, int size)
 {
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
+    
+    for (int i = 0; i < size; i++) 
+    {
+        for (int j = 0; j < size; j++) 
+        {
             printf(" %c", board[i][j]);
-            if (j < size - 1) {
+            if (j < size - 1) 
+            {
                 printf(" |");
             }
         }
         printf("\n");
-        if (i < size - 1) {
-            for (int k = 0; k < size; k++) {
+        if (i < size - 1) 
+        {
+            for (int k = 0; k < size; k++) 
+            {
                 printf("---");
-                if (k < size - 1) {
+                if (k < size - 1) 
+                {
                     printf("+");
                 }
             }
@@ -226,14 +280,16 @@ int is_draw(char **board, int size)
 
 void singleplayergame(char **board, int size, char *playername) 
 {
+    
     int player = 1;
     char playerchoice = 'X', computerchoice = 'O';
     int row, col;
-    boardprint(board, size);
+    
     while (1) 
     {
         if (player == 1) 
         {
+            boardprint(board, size);
             printf("\nYour turn %s!\nEnter row and column (e.g., 2 3): ", playername);
             scanf(" %d %d", &row, &col);
             row--;
@@ -252,6 +308,7 @@ void singleplayergame(char **board, int size, char *playername)
         } 
         else 
         {
+            boardprint(board, size);
             printf("\n\nMy turn...\n\n");
             do 
             {
@@ -263,7 +320,6 @@ void singleplayergame(char **board, int size, char *playername)
             player = 1;
         }
 
-        boardprint(board, size);
 
         int winner = check_winner(board, size);
         if (winner) 
@@ -277,6 +333,7 @@ void singleplayergame(char **board, int size, char *playername)
             break;
         }
     }
+    boardprint(board, size);
 }
 
 void doubleplayergame(char **board, int size) 
@@ -284,10 +341,11 @@ void doubleplayergame(char **board, int size)
     int player = 1;
     char symbols[2] = {'X', 'O'};
     int row, col;
-    boardprint(board, size);
+    
     while (1) 
     {
-        printf("Player %d (%c)! Enter row and column (e.g., 2 3): ", player, symbols[player - 1]);
+        boardprint(board, size);
+        printf("\n\nPlayer %d (%c)! Enter row and column (e.g., 2 3): ", player, symbols[player - 1]);
         scanf("%d %d", &row, &col);
         row--;
         col--;
@@ -303,7 +361,6 @@ void doubleplayergame(char **board, int size)
             continue;
         }
 
-        boardprint(board, size);
 
         int winner = check_winner(board, size);
         if (winner) 
@@ -316,6 +373,18 @@ void doubleplayergame(char **board, int size)
         {
             printf("It's a draw!\n");
             break;
+        }
+    }
+    boardprint(board, size);
+}
+
+void initialize_board(char **board, int size) 
+{
+    for (int i = 0; i < size; i++) 
+    {
+        for (int j = 0; j < size; j++) 
+        {
+            board[i][j] = ' ';
         }
     }
 }
